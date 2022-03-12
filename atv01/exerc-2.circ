@@ -58,23 +58,23 @@
   <circuit name="ula">
     <a name="circuit" val="ula"/>
     <a name="clabel" val=""/>
-    <a name="clabelup" val="50"/>
+    <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <comp lib="1" loc="(310,240)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
     <comp lib="1" loc="(300,120)" name="OR Gate">
       <a name="inputs" val="2"/>
     </comp>
     <comp lib="1" loc="(310,180)" name="NAND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(310,240)" name="XOR Gate">
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="1" loc="(300,60)" name="AND Gate">
       <a name="inputs" val="2"/>
     </comp>
   </circuit>
-  <circuit name="half-adder">
-    <a name="circuit" val="half-adder"/>
+  <circuit name="full-adder">
+    <a name="circuit" val="full-adder"/>
     <a name="clabel" val=""/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
