@@ -8,6 +8,15 @@
 	
 	#A=$s1  B=$s2  C=$s3  D=$s4
 .text
+	addi $v0, $0, 5 #v0 recebe valor do usuario de A
+	add $s1, $0, $v0 #s1 salva o valor do usuario de A
+	addi $v0, $0, 5 #v0 recebe valor do usuario de B
+	add $s2, $0, $v0 #s2 salva o valor do usuario de B
+	addi $v0, $0, 5 #v0 recebe valor do usuario de C
+	add $s3, $0, $v0 #s3 salva o valor do usuario de C
+	addi $v0, $0, 5 #v0 recebe valor do usuario de D
+	add $s4, $0, $v0 #s4 salva o valor do usuario de D
+	
 	add $t0, $s1, $s4 #soma A+D e coloca o resultado num registrador temporario $t0
 	lw $t1, num0 #recebe 7 em $t3
 	lw $t2, num1 #recebe 2 em $t4
