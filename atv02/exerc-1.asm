@@ -42,14 +42,22 @@
 	lw $t2, num1 #recebe 2 em $t4
 	lw $t3, num2 #recebe 5 em $t5
 	beq $t0, $t1, L1 #se A+D==7 vai para LABEL1
-	beq $s2, $t2, L1 #se B==2 vai para LABEL1
+	beq $s2, $t2, L1 #se B==2 vai para LABEL2
 	bne $s2, $t2, Else #caso argumento anterior seja falso vai para o Else
 	
-	L1: bne $s3, $t3, L2 #se C!=5 vai para LABEL2
+	L1: beq $s2, $t2, Else #se B==2 vai para Else, pois é "or"
+	bne $s3, $t3, L3 #se C!=5 vai para LABEL3
 	beq $s3, $t5, Else #caso argumento anterior seja falso vai para o Else
 	
-	L2: li $v0, 4
+	L2: bne $s3, $t3, L3 #se C!=5 vai para LABEL3
+	beq $s3, $t5, Else #caso argumento anterior seja falso vai para o Else
+	
+	L3: li $v0, 4
 	la $a0, msg1 #Imprime "TRUE"
+	syscall
+	
+	#Sair
+	addi $v0, $0, 10
 	syscall
 	
 	Else: li $v0, 4
