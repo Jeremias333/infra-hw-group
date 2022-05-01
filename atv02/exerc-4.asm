@@ -2,8 +2,8 @@
 	num0: .word 60
 	num1: .word 3600
 	num2: .word 86400
-	num3: .word 2592000 #mÍs de 30 dias
-	num4: .word 31536000 #n„o È ano bissexto
+	num3: .word 2592000 #m√™s de 30 dias
+	num4: .word 31536000 #n√£o √© ano bissexto
 	msg0: .asciiz " anos, "
 	msg1: .asciiz " meses, "
 	msg2: .asciiz " dias, "
@@ -12,11 +12,11 @@
 	msg5: .asciiz " segundos"
 	
 	#ANO=$s1  MES=$s2  DIA=$s3  HORA=$s4  MINUTO=$s5  SEGUNDO=$s6
-	#FORMATO: ìY anos, M meses, D dias, H horas, M minutos e S segundosî
+	#FORMATO: ‚ÄúY anos, M meses, D dias, H horas, M minutos e S segundos‚Äù
 .text
-	# ATEN«√O !! DEPOIS DE 9 OU 10 BITS DA ERRO DE -> Runtime exception at 0x00400004: invalid integer input (syscall 5)
+	# ATEN√á√ÉO !! DEPOIS DE 9 OU 10 BITS DA ERRO DE -> Runtime exception at 0x00400004: invalid integer input (syscall 5)
 	
-	# Pegar input (valor em segundos) do usu·rio
+	# Pegar input (valor em segundos) do usu√°rio
 	li $v0, 5
 	syscall
 	
@@ -37,10 +37,10 @@
 	rem $t1, $t0, $t5 #(Resto == segundos % 2592000)
 	div $s3, $t1, $t4 #(Dias == resto / 86400)
 	rem $t1, $t0, $t4 #(Resto == segundos % 86400)
-	div $s4, $t1, $t3 #divis„o de segundos por 3600 e coloca o resultado em $s4 (Horas == resto / 3600)
-	rem $t1, $t0, $t3 #resto da divis„o de segundos por 3600 e coloca o resultado em $t1 (Resto == segundos % 3600)
-	div $s5, $t1, $t2 #divis„o do $t1 por 60 e coloca o resultado em $s5 (Minutos == resto / 60)
-	rem $s6, $t1, $t2 #resto da divis„o de $t1 por 60 e coloca o resultado em $s6 (Segundos == resto % 60)
+	div $s4, $t1, $t3 #divis√£o de segundos por 3600 e coloca o resultado em $s4 (Horas == resto / 3600)
+	rem $t1, $t0, $t3 #resto da divis√£o de segundos por 3600 e coloca o resultado em $t1 (Resto == segundos % 3600)
+	div $s5, $t1, $t2 #divis√£o do $t1 por 60 e coloca o resultado em $s5 (Minutos == resto / 60)
+	rem $s6, $t1, $t2 #resto da divis√£o de $t1 por 60 e coloca o resultado em $s6 (Segundos == resto % 60)
 	
 	#Printar o resultado do calculo de anos
 	li $v0, 1
@@ -101,6 +101,3 @@
 	li $v0, 4
 	la $a0, msg5
 	syscall
-	
-	
-	
