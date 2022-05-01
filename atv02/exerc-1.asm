@@ -25,7 +25,7 @@
 	beq $s2, $t2, L1 #se B==2 vai para LABEL1
 	bne $s2, $t2, Else #caso argumento anterior seja falso vai para Else
 	
-	L1: bne $s3, $t3, L2 #se C!=5 vai para LABEL3
+	L1: bne $s3, $t3, L2 #se C!=5 vai para LABEL2
 	beq $s3, $t5, Else #caso argumento anterior seja falso vai para Else
 	
 	L2: addi $s0, $0, 1
