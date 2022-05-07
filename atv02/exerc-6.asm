@@ -28,7 +28,7 @@ recursive:
 	lw $t0, 0($sp) #salvando valor da pilha
 	addi $sp, $sp, 4 #percorrendo de 4 em 4 bytes
 
-	ble $t0, $t3, return #caso base (0, 1, 1, ...)
+	ble $t0, $t3, return 
 
 	sub $t0, $t0, 1 #n-1
 	addi $sp, $sp, -4
