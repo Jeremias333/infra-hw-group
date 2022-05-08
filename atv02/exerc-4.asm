@@ -14,8 +14,6 @@
 	#ANO=$s1  MES=$s2  DIA=$s3  HORA=$s4  MINUTO=$s5  SEGUNDO=$s6
 	#FORMATO: “Y anos, M meses, D dias, H horas, M minutos e S segundos”
 .text
-	# ATENÇÃO !! DEPOIS DE 9 OU 10 BITS DA ERRO DE -> Runtime exception at 0x00400004: invalid integer input (syscall 5)
-	
 	# Pegar input (valor em segundos) do usuário
 	li $v0, 5
 	syscall
