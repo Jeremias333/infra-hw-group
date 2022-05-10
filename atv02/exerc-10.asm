@@ -1,3 +1,14 @@
+#################################################################################################################################################################
+#Nome do grupo: LearnWARE 
+#Questão de número: 10
+#Atividade de número: 2
+#Disciplina: Infraestrutura de Hardware
+#Professor: Vitor Coutinho
+#Semestre Letivo: 3º semestre
+#Turma: B
+#Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
+#Objetivo do algoritmo: ***********
+#################################################################################################################################################################
 .data
 	#inicializando valores aleatorios para criação das variaveis.
 	zero: .float 0.0
