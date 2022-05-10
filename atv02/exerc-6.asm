@@ -1,3 +1,14 @@
+#################################################################################################################################################################
+#Nome do grupo: LearnWARE 
+#Questão de número: 6
+#Atividade de número: 2
+#Disciplina: Infraestrutura de Hardware
+#Professor: Vitor Coutinho
+#Semestre Letivo: 3º semestre
+#Turma: B
+#Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
+#Objetivo do algoritmo: ***********
+#################################################################################################################################################################
 .text
 main:
 	addi $v0, $0, 5 #v0 recebe valor do usuario
@@ -12,7 +23,7 @@ main:
 	syscall
 	j exit
 
-#come�o da sequencia de fibonacci
+#começo da sequencia de fibonacci
 fibonacci:
 	move $t1, $0 #caso base
 	move $t2, $sp #salvar o primeiro chamado da pilha
