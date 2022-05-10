@@ -1,3 +1,15 @@
+#################################################################################################################################################################
+#Nome do grupo: LearnWARE 
+#Questão de número: 1
+#Atividade de número: 2
+#Disciplina: Infraestrutura de Hardware
+#Professor: Vitor Coutinho
+#Semestre Letivo: 3º semestre
+#Turma: B
+#Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
+#Objetivo do algoritmo: Caso a soma de A e D seja 7 ou B seja igual a 2 e C seja diferente de 5, irá printar na tela “verdadeiro”, se não vai printar “falso”
+#################################################################################################################################################################
+
 .data
 	num0: .word 7
 	num1: .word 2 
