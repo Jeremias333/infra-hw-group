@@ -9,7 +9,6 @@
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
 #Objetivo do algoritmo: Caso a soma de A e D seja 7 ou B seja igual a 2 e C seja diferente de 5, irá printar na tela “verdadeiro”, se não vai printar “falso”
 #################################################################################################################################################################
-
 .data
 	num0: .word 7
 	num1: .word 2 
