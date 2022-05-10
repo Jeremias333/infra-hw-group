@@ -1,3 +1,14 @@
+#################################################################################################################################################################
+#Nome do grupo: LearnWARE 
+#Questão de número: 2
+#Atividade de número: 2
+#Disciplina: Infraestrutura de Hardware
+#Professor: Vitor Coutinho
+#Semestre Letivo: 3º semestre
+#Turma: B
+#Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
+#Objetivo do algoritmo: ***********
+#################################################################################################################################################################
 .data
 	msg: .space 60 #string informada pelo usuario
 	c1: .space 2 #char a ser trocado (coloquei space 2 pra ele identificar o enter)
