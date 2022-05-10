@@ -1,6 +1,7 @@
 #################################################################################################################################################################
 #Nome do grupo: LearnWARE 
 #Questão de número: 2
+#Data: 09/05/2022
 #Atividade de número: 2
 #Disciplina: Infraestrutura de Hardware
 #Professor: Vitor Coutinho
