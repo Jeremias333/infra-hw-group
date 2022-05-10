@@ -8,14 +8,15 @@
 #Semestre Letivo: 3Âº semestre
 #Turma: B
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
-#Objetivo do algoritmo: ***********
+#Objetivo do algoritmo: encontrar o valor que corresponde a posição N na 
+#			sequencia de fibonacci.
 #################################################################################################################################################################
 .text
 main:
-	addi $v0, $0, 5 #v0 recebe valor do usuario
+	addi $v0, $0, 5 #v0 recebe N
 	syscall
 	move $t0, $v0 #troca para t0
-	subi $t0, $t0, 1 #necessario reduzir 1 do valor do usuario (casos base)
+	subi $t0, $t0, 1 #-1 para tornar a posição de numero 1 como a primeira posição
 	jal fibonacci
 	
 	#parte para finalizar o programa

@@ -8,7 +8,8 @@
 #Semestre Letivo: 3Âº semestre
 #Turma: B
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
-#Objetivo do algoritmo: ***********
+#Objetivo do algoritmo: recebe um valor N e printa todos os valores ate n, em seguida printa uma nova 
+#			linha e vai até n-1 continua fazendo isso ate chegar no valor 1
 #################################################################################################################################################################
 .data
 	virgula: .asciiz ", "
