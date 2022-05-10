@@ -1,3 +1,14 @@
+#################################################################################################################################################################
+#Nome do grupo: LearnWARE 
+#Quest√£o de n√∫mero: 3
+#Atividade de n√∫mero: 2
+#Disciplina: Infraestrutura de Hardware
+#Professor: Vitor Coutinho
+#Semestre Letivo: 3¬∫ semestre
+#Turma: B
+#Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
+#Objetivo do algoritmo: ***********
+#################################################################################################################################################################
 .data
 	virgula: .asciiz ", "
 	newline: .asciiz "\n"
@@ -17,7 +28,7 @@ Print:
 	add $a0, $0, $t0
 	syscall
 	
-	#ultimo valor n„o printar virgula
+	#ultimo valor n√£o printar virgula
 	beq $s0, $t0,subOne
 	
 	#print da virgula
@@ -25,12 +36,12 @@ Print:
 	la $a0, virgula
 	syscall
 	
-	#verificaÁ„o se t0 È igual ao valor do usuario
+	#verifica√ß√£o se t0 √© igual ao valor do usuario
 	bne $s0, $t0, Print
 	j subOne
 
 subOne:
-	#verificando se t0 È maior ou igual a 1
+	#verificando se t0 √© maior ou igual a 1
 	beq $s0, 1, exit
 	
 	#resetando t0 e subtraindo 1 do valor do usuario
