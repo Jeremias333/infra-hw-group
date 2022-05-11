@@ -8,7 +8,7 @@
 #Semestre Letivo: 3º semestre
 #Turma: B
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
-#Objetivo do algoritmo: ***********
+#Objetivo do algoritmo: Retorna qual o maior número entre duas variáveis.
 #################################################################################################################################################################
 .data
 	#inicializando valores aleatorios para criação das variaveis.
