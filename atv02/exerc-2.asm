@@ -8,7 +8,7 @@
 #Semestre Letivo: 3º semestre
 #Turma: B
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
-#Objetivo do algoritmo: ***********
+#Objetivo do algoritmo: Substitui as todos chars repetidos de uma strings por outra.
 #################################################################################################################################################################
 .data
 	msg: .space 60 #string informada pelo usuario

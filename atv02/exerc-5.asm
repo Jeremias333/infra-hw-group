@@ -8,7 +8,7 @@
 #Semestre Letivo: 3º semestre
 #Turma: B
 #Alunos: Diego Moura, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
-#Objetivo do algoritmo: ***********
+#Objetivo do algoritmo: Calcula uma média móvel de um array de inteiros, unindo todos num array de saídas
 #################################################################################################################################################################
 .data
 	n_invalido: .asciiz "N invalido\n"
