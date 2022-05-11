@@ -26,10 +26,7 @@ main:
 	# Salvar o resultado em $s2
 	move $s2, $v0 #valor de n
 	
-	#Receber o valor
-	move $t1, $0 #recebe 0 em $t1
-	
-	#Chama a função calculopg (n)
+	#Chama a funï¿½ï¿½o calculopg (n)
 	jal calculopg
 	
 	#Printar o valor calculo
