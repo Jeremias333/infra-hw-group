@@ -41,7 +41,7 @@ module exerc_tres(in_seg, resto, anos, mes, dias, horas, minutos, segundos);    
 		horas = (resto / NUM1);                    // (Horas == resto / 3600)
 		resto = (in_seg % NUM1);                   // (Resto == segundos % 3600)
 		minutos = (resto / NUM0);                  // (Minutos == resto / 60)
-		segundos = (resro % NUM0);                 // (Segundos == resto % 60)
+		segundos = (resto % NUM0);                 // (Segundos == resto % 60)
    		$display("anos=%d msg0=%s mes=%d msg1=%s dias=%d msg2=%s horas=%d msg3=%s minutos=%d msg4=%s segundos=%d msg5=%s", anos, msg0, mes, msg1, dias, msg2, horas, msg3, minutos, msg4, segundos, msg5); // Mostra na tela e quebra linha
 	end
-endmodule                            // Fim do modulo
+endmodule                                  // Fim do modulo
