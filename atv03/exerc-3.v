@@ -26,12 +26,12 @@ module exerc_tres(in_seg, resto, anos, mes, dias, horas, minutos, segundos);    
   	parameter NUM4 = 8’d31536000;              // Rotulando a cadeia de 8 bits 31536000 como NUM4
   
   	always @ (in_seg) begin            // toda vez que a entrada mudar, vai executar dentro bloco sequencialmente
-		msg0 = " anos, ";
-		msg1 = " meses, ";
-		msg2 = " dias, ";
-		msg3 = " horas, ";
-		msg4 = " minutos e ";
-		msg5 = " segundos";
+		msg0 = " anos, ";                          // Declarando a string 0
+		msg1 = " meses, ";                         // Declarando a string 1
+		msg2 = " dias, ";                          // Declarando a string 2
+		msg3 = " horas, ";                         // Declarando a string 3
+		msg4 = " minutos e ";                      // Declarando a string 4
+		msg5 = " segundos";                        // Declarando a string 5
 		anos = (in_seg / NUM4);                    // (Anos == segundos / 31536000)
 		resto = (in_seg % NUM4);                   // (Resto == segundos % 31536000)
 		mes = (resto / NUM3);                      // (Mes == resto / 2592000)
