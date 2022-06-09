@@ -8,11 +8,11 @@
 -Semestre Letivo: 3º semestre
 -Turma: B
 -Alunos: Paulo Guerreiro, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
--Objetivo do algoritmo: Vai pegar um input inteiro do usuário em segundos e transformar isso em um formato de anos, meses, dias, horas, minutos e segundos
+-Objetivo do algoritmo: É uma máquina de moore em verilog.
 */
-module maquuina_estados(entrada, clk, rst, saida, saida_estado); // Inicio do modulo, dentro do parametro listar entrada e saída
+module maquuina_estados(entrada, clk, rst, saida_geral, saida_refri, saida_troco, saida_estado); // Inicio do modulo, dentro do parametro listar entrada e saída
 	input wire entrada, clk, rst;  // Declaro o tipo da entrada (que tem entrada, clock e o reset)
-	output reg saida; // Declaro o tipo da saída (é reg devido a ser usado em um always)
+	output reg saida_geral, saida_refri, saida_troco; // Declaro o tipo da saída (é reg devido a ser usado em um always)
 	output wire [2:0] saida_estado; // Declaro o tipo da saída
 	
 	reg [2:0] estado; // Definir variáveis internas, o registrador de estado (aqui equivale a 8 estados)
@@ -24,63 +24,68 @@ module maquuina_estados(entrada, clk, rst, saida, saida_estado); // Inicio do mo
 			estado <= 3'd0;
 		end
 		else begin //comportamento regular (sem reset)
-			case (estado) 
+			case (estado) //3'd1=001; 3'd2=010; 3'd3=011; 3'd4=100; 3'd5=101; 3'd6=110; 3'd7=111
 				3'd0:
-					if (entrada == 1'b1) begin
-						estado <= 3'd1;
+					if (entrada == 1'b1) begin //=1
+						estado <= 3'd2; //A  
+					end
+					else if (entrada == 1'b1) begin 
+						estado <= 3'd1;// B
 					end
 					else begin
-						estado <= 3'd2;
+						estado <= 3'd3; // AB
 					end
 				3'd1:
 					if (entrada == 1'b1) begin
-						estado <= 3'd3;
+						estado <= 3'd3; // A
+					end
+					else if (entrada == 1'b1) begin 
+						estado <= 3'd2;// B
 					end
 					else begin
-						estado <= 3'd2;
+						estado <= 3'd4; // AB
 					end
 				3'd2:
-					if (entrada == 1'b1) begin
-						estado <= 3'd3;
+					if (entrada == 1'b1) begin 
+						estado <= 3'd4; //A 
+					end
+					else if (entrada == 1'b1) begin 
+						estado <= 3'd3;// B
 					end
 					else begin
-						estado <= 3'd4;
+						estado <= 3'd5; //AB
 					end
 				3'd3:
 					if (entrada == 1'b1) begin
-						estado <= 3'd5;
+						estado <= 3'd5;//A 
+					end
+					else if (entrada == 1'b1) begin 
+						estado <= 3'd4;//B
 					end
 					else begin
-						estado <= 3'd4;
+						estado <= 3'd6; //AB
 					end
 				3'd4:
 					if (entrada == 1'b1) begin
-						estado <= 3'd5;
+						estado <= 3'd6;//A
+					end
+					else if (entrada == 1'b1) begin 
+						estado <= 3'd5;//B
 					end
 					else begin
-						estado <= 3'd6;
+						estado <= 3'd7;//AB
 					end
 				3'd5:
 					if (entrada == 1'b1) begin
-						estado <= 3'd7;
+						estado <= 3'd7;//A
 					end
 					else begin
-						estado <= 3'd6;
+						estado <= 3'd0;//B
 					end
 				3'd6:
-					if (entrada == 1'b1) begin
-						estado <= 3'd7;
-					end
-					else begin
-						estado <= 3'd0;
-					end
+					estado <= 3'd0;
 				3'd7:
-					if (entrada == 1'b1) begin
-						estado <= 3'd1;
-					end
-					else begin
-						estado <= 3'd0;
-					end
+					estado <= 3'd6;
 				default:
 					estado <= 3'd0;
 			endcase 
@@ -88,13 +93,14 @@ module maquuina_estados(entrada, clk, rst, saida, saida_estado); // Inicio do mo
 	end
 	
 	always @ (estado) begin
-		if ( (estado == 3'd6) || (estado == 3'd7) ) begin
-			saida <= 1'b1;
+		if ( (estado == 3'd5) || (estado == 3'd6) ) begin
+			saida_refri <= 1'b1;
+		end
+		else if ( (estado == 3'd6) || (estado == 3'd7) ) begin 
+			saida_troco <= 1'b1;
 		end
 		else begin
-			saida <= 1'b0;
+			saida_geral <= 1'b0;
 		end
 	end
 endmodule 	// Fim do modulo
-		
-//$display(); // Mostra na tela e quebra linha                    
