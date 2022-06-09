@@ -10,26 +10,25 @@
 -Alunos: Paulo Guerreiro, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
 -Objetivo do algoritmo: É um registrador de deslocamento síncrono em verilog.
 */
-module shiftreg (clk, data_in, data_out, shift_in, ctrl);
-	//declarar entradas e saídas
-	input wire clk, shift_in, ctrl;
-	input wire [7:0] data_in; //8 bits
-	output reg [7:0] data_out; //8 bits
+module shiftreg (clk, data_in, data_out, shift_in, ctrl); // Inicio do modulo, dentro do parametro listar as entradas e saídas
+	input wire clk, shift_in, ctrl; // Declara o tipo da entrada
+	input wire [7:0] data_in; // Declaro o tipo da saída
+	output reg [7:0] data_out; // Declaro o tipo da saída (é reg devido a ser usado em um always) e ttem o valor de 8 bits
 	
-	//descrever comportamento
-	always @ (posedge clk) begin //2'b1=01; 2'b2=010; 2'b3=11
-		if (ctrl == 1'b00) begin
-			data_out <= data_out[0]; //mantém a saída (data_out) no estado atual ->NAO SEI SE TA CERTO
+	// Descreve comportamento do código
+	always @ (posedge clk) begin // Toda vez que a entrada mudar, vai executar dentro bloco sequencialmente
+		if (ctrl == 1'b00) begin // Se for 00
+			data_out <= data_out[0]; // Mantém a saída (data_out) no estado atual
 		end
-		else if (ctrl == 2'b01) begin 
-			data_out <= data_in; //carrega os bits da entrada paralela para o registrador (data_out)
+		else if (ctrl == 2'b01) begin // Se for 01
+			data_out <= data_in; // Carrega os bits da entrada paralela para o registrador (data_out)
 		end
-		else if (ctrl == 2'b10) begin 
+		else if (ctrl == 2'b10) begin // Se for 10
 			data_out <= data_out >> 1; //Deslocamento a direita
 			data_out[7]  <= shift_in;
 		end
 		else begin
-			data_out <= data_out >> 1; 
+			data_out <= data_out >> 1; //Deslocamento a direita
 			data_out[6]  <= shift_in;
 		end
 	end
