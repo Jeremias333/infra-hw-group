@@ -10,7 +10,7 @@
 -Alunos: Paulo Guerreiro, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
 -Objetivo do algoritmo: É um registrador de deslocamento síncrono em verilog.
 */
-module maq_states (clk, data_in, data_out, shift_in, ctrl);
+module shiftreg (clk, data_in, data_out, shift_in, ctrl);
 	//declarar entradas e saídas
 	input wire clk, shift_in, ctrl;
 	input wire [7:0] data_in; //8 bits
@@ -18,16 +18,16 @@ module maq_states (clk, data_in, data_out, shift_in, ctrl);
 	
 	//descrever comportamento
 	always @ (posedge clk) begin //2'b1=01; 2'b2=010; 2'b3=11
-		if (ctrl == 2'b1) begin
-			data_out <= data_in;
+		if (ctrl == 1'b0) begin
+			data_out <= data_out[0]; //mantém a saída (data_out) no estado atual ->NAO SEI SE TA CERTO
 		end
-		else if (ctrl == 2'b2) begin 
+		else if (ctrl == 2'b1) begin 
+			data_out <= data_in; //carrega os bits da entrada paralela para o registrador (data_out)
+		end
+		else begin
 			data_out <= data_out >> 1; //Deslocamento a direita
 			data_out[7]  <= shift_in;
 		end
-		else begin
-			data_out <= data_out >> 1;
-			data_out[7]  <= shift_in / 2; //?
-		end
+		//FALTA 1 o de 11
 	end
 endmodule 
