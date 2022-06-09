@@ -8,7 +8,7 @@
 -Semestre Letivo: 3º semestre
 -Turma: B
 -Alunos: Paulo Guerreiro, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
--Objetivo do algoritmo: É uma máquina de moore em verilog.
+-Objetivo do algoritmo: É uma máquina de moore para um projeto de máquina automática de vender refrigerante em verilog.
 */
 module maq_states(entrada, clk, rst, saida_geral, saida_refri, saida_troco, saida_estado); // Inicio do modulo, dentro do parametro listar entrada e saída
 	input wire entrada, clk, rst;  // Declaro o tipo da entrada (que tem entrada, clock e o reset)
