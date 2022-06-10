@@ -8,21 +8,28 @@
 -Semestre Letivo: 3º semestre
 -Turma: B
 -Alunos: Paulo Guerreiro, Elder Lamarck, Jacquelin Busch, Jeremias Oliveira
--Objetivo do algoritmo: É uma unidade lógico aritmética em verilog.
+-Objetivo do algoritmo: É uma unidade lógico aritmética em verilog para fazer operações: add, sub, shift left, NOR.
 */
-module ula (a, b, r, f, status_d, ctrl_f);
-	input wire opcode, ctrl_f;
-	input wire [7:0] a, b;   
-	output reg [7:0] r;
-	outpu reg status_d;
 
-	always @(a or b or opcode) begin
-		case(opcode) //2'b1=01; 2'b2=010; 2'b3=11
-			2'b0: r = a + b;
-			2'b1: r = a - b;
-			2'b2: r = a << b;
-			2'b3: r = ~a || ~b;
+module ula (a, b, f1, f2, r);
+	// a e b são entradas para o calculo com 8 bits
+	input [7:0] a, b;
+	// f1 e f2 são entradas para o calculo com 1 bit cada 
+	// (no ULA da questão 2 da primeira atividade utilizamos apenas uma variável de 2 bits
+	// porém aqui vamos mudar a abordagem).
+	input f1, f2;
+	//saída em r com 8 bits assim como a entrada.
+	output reg [7:0] r;
+
+	//aqui vai ficará definido o fluxo que vai acontecer no ULA
+	//recebe a que é a primeira entrada, recebe b que é a segunda entrada
+	//recebe também f1 e f2 que são as entradas de 1 bit para definir qual caminho o ula vai seguir
+	always @ (a or b or f1 or f2) begin
+		case ({f1, f2}) // duas variáveis de controle da ula que juntos configuram dois bits
+			2'b00: r = a + b; //caso a combinação seja 00 o ula irá fazer a soma (ADD)
+			2'b01: r = a - b; //caso a combinação seja 01 o ula irá fazer a subtração (SUB)
+			2'b10: r = a << b; //caso a combinação seja 10 o ula irá fazer o shift left
+			2'b11: r = ~a || ~b; //caso a combinação seja 11 o ula irá fazer o NOR
 		endcase
 	end
-
 endmodule
